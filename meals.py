@@ -28,11 +28,15 @@ def random():
     conn.commit()
     conn.close()
 
-
+# Given a list of meals and an index, adds 1 to its weight in the database
 def update(meal_list, position):
-    #import sqlite3
-    #conn = sqlite3.connect("meals.db")
-    #c = conn.cursor()
+    import sqlite3
+    conn = sqlite3.connect("meals.db")
+    c = conn.cursor()
 
     to_update = [meal_list[position - 1]]
-    print(to_update)
+
+    c.execute("""UPDATE meal_list SET weight = (weight + 1) WHERE meal = ?""", to_update)
+
+    conn.commit()
+    conn.close()
