@@ -29,3 +29,10 @@ def random():
     conn.close()
 
 
+def update(meal_list, position):
+    #import sqlite3
+    #conn = sqlite3.connect("meals.db")
+    #c = conn.cursor()
+
+    to_update = [meal_list[position - 1]]
+    print(to_update)
